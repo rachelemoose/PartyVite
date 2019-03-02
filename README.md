@@ -1,1 +1,1 @@
-# Textvite
+# PartyVite
