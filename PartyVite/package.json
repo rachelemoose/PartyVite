@@ -1,24 +1,25 @@
 {
-  "name": "PartyVite",
-  "version": "0.0.1",
-  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "dependencies": {
-    "react": "16.6.3",
-    "react-native": "0.58.6",
-    "react-native-router-flux": "^4.0.6"
-  },
-  "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.3.1",
-    "jest": "24.3.1",
-    "metro-react-native-babel-preset": "0.53.0",
-    "react-test-renderer": "16.6.3"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
-    "preset": "react-native"
-  }
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "expo": "^32.0.0",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-navigation": "^3.0.9"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0",
+    "jest-expo": "^32.0.0"
+  },
+  "private": true
 }
