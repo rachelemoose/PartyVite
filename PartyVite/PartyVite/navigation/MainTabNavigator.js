@@ -30,11 +30,11 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Invite',
+  tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-send' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
     />
   ),
 };
