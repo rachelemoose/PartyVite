@@ -10,7 +10,7 @@ class LoginButton extends React.Component {
         return (
             <View style={styles.container}>
             <TouchableOpacity style={styles.buttonContainer} 
-            // onPress = {this.handleClick}
+            onPress = {this.handleClick}
             >
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
