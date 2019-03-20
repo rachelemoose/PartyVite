@@ -7,9 +7,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import Signup from '../components/Signup/Signup';
+import LoginButton from '../components/Login/LoginButton';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -20,9 +22,8 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Text style={styles.welcome}>PartyVite</Text>
-        </ScrollView>
+                    <Signup />
+                    <LoginButton />
       </View>
     );
   }
@@ -64,7 +65,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#A33856',
   },
   welcome: {
     fontSize: 20,
