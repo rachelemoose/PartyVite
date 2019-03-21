@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Animated, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Keyboard, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
     inviteButton: {
@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         backgroundColor: '#fd79a8',
-        // backgroundColor: '#A33856',
         paddingVertical: 15,
         borderRadius: 20,
     },
@@ -26,7 +25,9 @@ const styles = StyleSheet.create({
     inputView: {
         height: 40,
         paddingHorizontal: 6,
-        borderBottomColor: '#2980b9',
+        backgroundColor: '#fd79a8',
+        color: '#fff',
+        fontWeight: 'bold',
     }
     
 });
@@ -35,7 +36,8 @@ class Invitation extends React.Component {
         
     state = {
         // render a conditional render
-        _isCreateInvitation: false
+        _isCreateInvitation: false,
+        height: 0
     }
 
     createInvite = () => {
@@ -47,14 +49,21 @@ class Invitation extends React.Component {
 
     renderForm () {
         return (<View style={styles.formView}>
-            <TextInput style={styles.inputView} placeholder="Event Title" maxLength={20} />
-            <TextInput placeholder="Event Type" maxLength={20} />
-            <TextInput placeholder="Hostname" maxLength={20} />
-            <TextInput placeholder="Date" maxLength={20} />
-            <TextInput placeholder="Contact" maxLength={20} />
-            <TextInput placeholder="Location" maxLength={20} />
-            <TextInput placeholder="Address" maxLength={50} />
-            <TextInput placeholder="Message" maxLength={250} />
+            <TextInput style={styles.inputView} placeholder="Event Title" maxLength={20} onSubmitEditing={Keyboard.dismiss} />
+            <TextInput style={styles.inputView} placeholder="Event Type (i.e. Birthday Party" maxLength={20} />
+            <TextInput style={styles.inputView} placeholder="Hostname" maxLength={20} />
+            <TextInput style={styles.inputView} placeholder="Date" maxLength={20} />
+            <TextInput style={styles.inputView} placeholder="Contact" maxLength={20} />
+            <TextInput style={styles.inputView} placeholder="Location" maxLength={20} />
+            <TextInput style={styles.inputView} placeholder="Address" maxLength={50} />
+            <TextInput style={[styles.inputView, {height: Math.max(35, this.state.height)}]} 
+                onChangeText={(text) => {
+                    this.setState({ text })
+                }}
+                onContentSizeChange={(event) => {
+                    this.setState({ height: event.nativeEvent.contentSize.height })
+                }}
+            multiline={true} placeholder="Message" maxLength={250} />
         </View>)
     }
 
@@ -70,7 +79,6 @@ class Invitation extends React.Component {
 
     render() {
 
-        // const { slideUp} = this.state;
         const {_isCreateInvitation} = this.state;
 
         if (_isCreateInvitation) {
