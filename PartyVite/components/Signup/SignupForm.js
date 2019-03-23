@@ -5,20 +5,20 @@ class SignupForm extends React.Component {
     render() {
         return (
         <View style={styles.container}>
-        <StatusBar barStyle="Light-content"/>
+        <StatusBar barStyle="light-content"/>
             <TextInput 
                 placeholder="email"
-                placeholderTextColor="rgba(255,255,255,0.7"
+                placeholderTextColor="rgba(255,255,255,0.7)"
                 returnKeyType="next"
                 onSubmitEditing={() => this.passwordInput.focus()}
-                keyboardType="email-adress"
+                keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
                 style={styles.input}
             />
             <TextInput
                 placeholder="password"
-                placeholderTextColor="rgba(255,255,255,0.7"
+                placeholderTextColor="rgba(255,255,255,0.7)"
                 returnKeyType="go"
                 secureTextEntry
                 style={styles.input}
@@ -44,13 +44,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     buttonContainer: {
-        backgroundColor: '#828282',
+        backgroundColor: '#fff',
         paddingVertical:15,
         borderRadius: 10,
+        marginTop: 50,
     },
     buttonText: {
         textAlign: 'center',
-        color: '#ffffff'
+        color: '#000'
     }
 })
 

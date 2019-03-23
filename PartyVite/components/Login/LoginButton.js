@@ -1,10 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 
-// handleClick = () => {
-//     alert('button clicked')
-// }
-
 class LoginButton extends React.Component {
     render() {
         return (
@@ -22,16 +18,17 @@ class LoginButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 400,
+        marginTop: 330,
         padding: 20,
     },
     buttonContainer: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fd79a8',
         paddingVertical: 15,
         borderRadius: 10,
     },
     buttonText: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#fff'
     }
 });
 
