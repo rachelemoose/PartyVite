@@ -21,10 +21,10 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
                     <Signup />
                     <LoginButton />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 

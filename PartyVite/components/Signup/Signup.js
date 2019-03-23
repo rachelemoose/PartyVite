@@ -20,7 +20,7 @@ class Signup extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
+        marginTop: 30,
         flex: 1,
         backgroundColor: '#A33856'
     },
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#ffffff',
         marginTop: 30,
-        fontSize: 13,
+        fontSize: 17,
     }
 });
 
