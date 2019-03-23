@@ -34,24 +34,27 @@ class SignupForm extends React.Component {
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        marginTop: 140,
+        marginTop: 30,
     },
     input: {
-        height: 40,
+        height: 60,
         backgroundColor: 'rgba(255,255,255,0.5)',
         marginBottom: 20,
         color: '#fff',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        fontSize: 17
     },
     buttonContainer: {
         backgroundColor: '#fff',
+        height: 58,
         paddingVertical:15,
         borderRadius: 10,
-        marginTop: 50,
+        marginTop: 80,
     },
     buttonText: {
         textAlign: 'center',
-        color: '#000'
+        color: '#000',
+        fontSize: 17
     }
 })
 
