@@ -21,7 +21,9 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "babel-preset-react-native": "^4.0.1",
+    "jest-expo": "^32.0.0",
+    "react-native-dotenv": "^0.2.0"
   },
   "private": true
 }
