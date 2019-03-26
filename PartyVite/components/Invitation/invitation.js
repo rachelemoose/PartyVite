@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, Keyboard, TextInput, Keyboard
 
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from "moment";
+import axios from 'axios';
 
 const styles = StyleSheet.create({
     inviteButton: {
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
 class Invitation extends React.Component {
         
     state = {
-        // render a conditional render
+        
         _isCreateInvitation: false,
         height: 0,
         isVisible: false,
@@ -104,12 +105,29 @@ class Invitation extends React.Component {
             location,
             address,
             message }  = this.state ;
-        Alert.alert(`{${eventTitle} \n ${eventType}, ${hostname},
-        ${dateField},
-        ${contact},
-        ${location},
-        ${address},
-        ${message}`);
+        // Alert.alert(`{${eventTitle} \n ${eventType}, ${hostname},
+        // ${dateField},
+        // ${contact},
+        // ${location},
+        // ${address},
+        // ${message}`);
+
+        axios.post(
+            'https://fierce-sea-42604.herokuapp.com/invite', 
+            {
+                invitees: [contact],
+                message: 
+                    `You've been invited to ${eventTitle}! It's a ${eventType} hosted by ${hostname} on ${dateField} at ${location}: ${address}. ${hostname} says "${message}" \n \nRSVP by: \nSend 'Yes' if you can make it\n'No' if you can't attend\n'Maybe', if you're not sure.`
+                
+                
+               
+            },
+
+        ).then(response => {
+            // console.log(response.data)
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
     changeKeyboardView = () => {
@@ -120,7 +138,7 @@ class Invitation extends React.Component {
     }
 
     renderForm () {
-        console.log(this.state.behavior)
+        
         return (<KeyboardAvoidingView style={styles.keyboardStyle} behavior={this.state.behavior} enabled keyboardVerticalOffset={100}>
             <ScrollView>
             <View>
