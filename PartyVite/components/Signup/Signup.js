@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, KeyboardAvoidingView } from 'react-native';
 import SignupForm from './SignupForm';
+import LoginButton from '../Login/LoginButton';
 
 class Signup extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class Signup extends React.Component {
                 </View>
                 <View style={styles.formContainer}>
                     <SignupForm />
+                    <LoginButton />
                 </View>
             </KeyboardAvoidingView>
         );
@@ -20,15 +22,14 @@ class Signup extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 30,
         flex: 1,
-        backgroundColor: '#A33856'
+        backgroundColor: '#A33856',
     },
     logoContainer: {
-        marginTop: 80,
         alignItems: 'center',
         flexGrow: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 90,
     },
     logo: {
         height: 150,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         marginTop: 30,
         fontSize: 17,
-    }
+    },
 });
 
 export default Signup;

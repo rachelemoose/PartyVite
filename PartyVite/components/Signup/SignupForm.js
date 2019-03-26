@@ -4,13 +4,13 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from '
 class SignupForm extends React.Component {
     render() {
         return (
-        <View style={styles.container}>
+        <View style={styles.containerSec}>
         <StatusBar barStyle="light-content"/>
             <TextInput 
                 placeholder="email"
                 placeholderTextColor="rgba(255,255,255,0.7)"
                 returnKeyType="next"
-                onSubmitEditing={() => this.passwordInput.focus()}
+                onSubmitEditing={() => { this.secondTextInput.focus(); }}
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -19,11 +19,14 @@ class SignupForm extends React.Component {
             <TextInput
                 placeholder="password"
                 placeholderTextColor="rgba(255,255,255,0.7)"
+                ref={(input) => { this.secondTextInput = input; }}
                 returnKeyType="go"
                 secureTextEntry
                 style={styles.input}
-                ref={(input) => this.passwordInput = input}
             />
+            <TouchableOpacity style={styles.buttonContainerSignIn}>
+                <Text style={styles.buttonTextSignIn}>Sign In</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
@@ -32,9 +35,9 @@ class SignupForm extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    containerSec: {
         padding: 20,
-        marginTop: 30,
+        marginBottom: 100,
     },
     input: {
         height: 60,
@@ -42,19 +45,35 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: '#fff',
         paddingHorizontal: 10,
-        fontSize: 17
+        fontSize: 17,
     },
     buttonContainer: {
         backgroundColor: '#fff',
         height: 58,
         paddingVertical:15,
         borderRadius: 10,
-        marginTop: 80,
+        position: 'absolute',
+        marginTop: 190,
+        left: 195,
+        width: 160,
+    },
+    buttonContainerSignIn: {
+        backgroundColor: '#fd79a8',
+        height: 58,
+        paddingVertical:15,
+        borderRadius: 10,
+        marginTop: 10,
+        width: 160,
     },
     buttonText: {
         textAlign: 'center',
         color: '#000',
         fontSize: 17
+    },
+    buttonTextSignIn: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 17,
     }
 })
 

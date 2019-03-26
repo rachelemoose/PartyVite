@@ -23,7 +23,7 @@ export default class HomeScreen extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.container}>
                     <Signup />
-                    <LoginButton />
+                    {/* <LoginButton /> */}
       </KeyboardAvoidingView>
     );
   }
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#A33856',
+    // marginTop: -100,
   },
   welcome: {
     fontSize: 20,
