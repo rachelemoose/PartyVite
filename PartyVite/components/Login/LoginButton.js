@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity, Button, KeyboardAvoidingView } from 'react-native';
 import SignupForm from '../Signup/SignupForm';
 import * as Expo from 'expo'
 
@@ -17,7 +17,7 @@ class LoginButton extends React.Component {
         const result = await Expo.Google.logInAsync({
         androidClientId:
             "311655794842-klg24937ksv6hplvtd1t9obedimcqdj7.apps.googleusercontent.com",
-          //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
+          iosClientId: "311655794842-9oukkeq8o43k9nima9aaic482fjd55b2.apps.googleusercontent.com",
         scopes: ["profile", "email"]
         })
 
@@ -36,13 +36,13 @@ class LoginButton extends React.Component {
     }
     render() {
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
         {this.state.signedIn ? (
             <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />
         ) : (
             <LoginPage style={styles.header} signIn={this.signIn} />
         )}
-        </View>
+        </KeyboardAvoidingView>
     )
     }
 }
@@ -51,7 +51,7 @@ const LoginPage = props => {
     return (
     <View style={styles.buttonContainer}>
         <Text style={styles.header}></Text>
-        <Button title="Sign in with Google" color="#fff" onPress={() => props.signIn()} />
+        <Button title="Sign in with Google" color="#000" onPress={() => props.signIn()} />
     </View>
     )
 }
@@ -76,10 +76,11 @@ const styles = StyleSheet.create({
     color: '#fff'
     },
     buttonContainer: {
-    backgroundColor: '#fd79a8',  
+    backgroundColor: '#fff',  
     borderRadius: 10,
     width: 335,
-    height: 65
+    height: 65,
+    marginBottom: 150,
     },
     image: {
     width: 150,
@@ -89,36 +90,5 @@ const styles = StyleSheet.create({
     borderRadius: 150
     }
 })
-
-// class LoginButton extends React.Component {
-//     render(props) {
-//         return (
-//             <View style={styles.container}>
-//             <TouchableOpacity style={styles.buttonContainer} 
-//             onPress = {this.handleClick}
-//             >
-//                     <Button title="Sign in with Google" onPress={() => props.signIn()} />
-
-//             </TouchableOpacity>
-//             </View>
-//         );
-//     }
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         marginTop: 400,
-//         padding: 20,
-//     },
-//     buttonContainer: {
-//         backgroundColor: '#ffffff',
-//         paddingVertical: 15,
-//         borderRadius: 10,
-//     },
-//     buttonText: {
-//         textAlign: 'center'
-//     }
-// });
 
 export default LoginButton;
