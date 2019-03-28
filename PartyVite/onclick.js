@@ -5,12 +5,23 @@ import getcontacts from './getcontacts';
 
 
 class HomeScreen extends React.Component {
+
+
+  state ={
+    number: [],
+  }
+
+numberSelected = (phoneNumber) => {
+this.setState({number: [...this.state.number, phoneNumber]})
+}
+
   render() {
+    // console.log(this.state)
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title="Button"
-          onPress={() => this.props.navigation.navigate('Contacts')}
+          onPress={() => this.props.navigation.navigate('Contacts', {numberSelected: this.numberSelected})}
         />
       </View>
     );
