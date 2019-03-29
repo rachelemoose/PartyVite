@@ -92,7 +92,6 @@ class Invitation extends React.Component {
     }
 
     createInvite = () => {
-        // console.log("this worked!!!")
         this.setState({
             _isCreateInvitation: true
         })
@@ -100,13 +99,13 @@ class Invitation extends React.Component {
 
     sendInvite = () => {
         const { eventTitle, eventType, hostname,
-            dateField,
+            markedDate,
             contact,
             location,
             address,
             message }  = this.state ;
-        // Alert.alert(`{${eventTitle} \n ${eventType}, ${hostname},
-        // ${dateField},
+        // console.log(`{${eventTitle} \n ${eventType}, ${hostname},
+        // ${markedDate},
         // ${contact},
         // ${location},
         // ${address},
@@ -117,28 +116,23 @@ class Invitation extends React.Component {
             {
                 invitees: [contact],
                 message: 
-                    `You've been invited to ${eventTitle}! It's a ${eventType} hosted by ${hostname} on ${dateField} at ${location}: ${address}. ${hostname} says "${message}" \n \nRSVP by: \nSend 'Yes' if you can make it\n'No' if you can't attend\n'Maybe', if you're not sure.`
-                
-                
-               
+                    `You've been invited to ${eventTitle}! It's a ${eventType} hosted by ${hostname} on ${markedDate} at ${location}: ${address}. ${hostname} says "${message}" \n \nRSVP by: \nSend 'Yes' if you can make it\n'No' if you can't attend\n'Maybe', if you're not sure.`
             },
 
         ).then(response => {
-            // console.log(response.data)
+            this.setState({_isCreateInvitation: false})
         }).catch(err => {
-            console.log(err)
+            Alert.alert('Please enter a valid phone number.')
         })
     }
 
     changeKeyboardView = () => {
-        console.log('did this work?')
         this.setState({
             behavior: 'position'
         })
     }
 
     renderForm () {
-        
         return (<KeyboardAvoidingView style={styles.keyboardStyle} behavior={this.state.behavior} enabled keyboardVerticalOffset={100}>
             <ScrollView>
             <View>
@@ -151,6 +145,7 @@ class Invitation extends React.Component {
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='eventTitle'
+                    value={this.state.eventTitle}
                     onChangeText={eventTitle => this.setState({eventTitle})}
                 />
 
@@ -164,6 +159,7 @@ class Invitation extends React.Component {
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='eventType'
+                    value={this.state.eventType}
                     onChangeText={eventType => this.setState({eventType})}
                 />
 
@@ -177,6 +173,7 @@ class Invitation extends React.Component {
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='hostname'
+                    value={this.state.hostname}
                     onChangeText={hostname => this.setState({hostname})}
                 />
 
@@ -212,6 +209,7 @@ class Invitation extends React.Component {
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='contact'
+                    value={this.state.contact}
                     onChangeText={contact => this.setState({contact})}
                 />
 
@@ -220,13 +218,13 @@ class Invitation extends React.Component {
                     placeholder="Location" 
                     placeholderTextColor="#fff" 
                     maxLength={20} 
-                    onSubmitEditing={() => { this.seventhTextInput.focus()
-                        this.setState({behavior:'position'})
-                         }} 
+                    onSubmitEditing={() => { this.seventhTextInput.focus() 
+                        this.setState({behavior:'position'})}} 
                     ref={(input) => { this.sixthTextInput = input; }}  
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='location'
+                    value={this.state.location}
                     onChangeText={location => this.setState({location})}
                 />
 
@@ -240,6 +238,7 @@ class Invitation extends React.Component {
                     returnKeyType='next' 
                     blurOnSubmit={ false } 
                     name='address'
+                    value={this.state.address}
                     onChangeText={address => this.setState({address})}
                     onPress={() => this.changeKeyboardView()}
                 />
@@ -257,9 +256,8 @@ class Invitation extends React.Component {
                     placeholderTextColor="#fff" 
                     maxLength={250} 
                     ref={(input) => { this.eigthTextInput = input; }} 
-                    // returnKeyType='done' 
-                    // blurOnSubmit={ true } 
                     name='message'
+                    value={this.state.message}
                     onChangeText={message => this.setState({message})}
                     onPress={() => this.changeKeyboardView()}
                 />
