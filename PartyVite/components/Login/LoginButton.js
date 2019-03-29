@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity, Button, KeyboardAvoidingView } from 'react-native';
 import SignupForm from '../Signup/SignupForm';
+import Invitation from '../Invitation/invitation';
 import {GOOGLE_CLIENT_ID, iOS_CLIENT_ID} from 'react-native-dotenv';
 import * as Expo from 'expo'
 
@@ -17,8 +18,10 @@ class LoginButton extends React.Component {
     signIn = async () => {
     try {
         const result = await Expo.Google.logInAsync({
+
         androidClientId:
             GOOGLE_CLIENT_ID,
+        iosClientId:
             iOS_CLIENT_ID,
         
         scopes: ["profile", "email"]
@@ -62,7 +65,7 @@ const LoginPage = props => {
 const LoggedInPage = props => {
     return (
     <View style={styles.container}>
-    <SignupForm />
+    <Invitation />
     </View>
     )
 }
