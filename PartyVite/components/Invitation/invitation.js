@@ -104,12 +104,6 @@ class Invitation extends React.Component {
             location,
             address,
             message }  = this.state ;
-        // console.log(`{${eventTitle} \n ${eventType}, ${hostname},
-        // ${markedDate},
-        // ${contact},
-        // ${location},
-        // ${address},
-        // ${message}`);
 
         axios.post(
             'https://fierce-sea-42604.herokuapp.com/invite', 
@@ -203,7 +197,7 @@ class Invitation extends React.Component {
                     style={styles.inputContainer} 
                     placeholder="Contact" 
                     placeholderTextColor="#fff" 
-                    maxLength={20} 
+                    // maxLength={20} 
                     onSubmitEditing={() => { this.sixthTextInput.focus(); }} 
                     ref={(input) => { this.fifthTextInput = input; }}  
                     returnKeyType='next' 
