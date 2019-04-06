@@ -114,7 +114,17 @@ class Invitation extends React.Component {
             },
 
         ).then(response => {
-            this.setState({_isCreateInvitation: false})
+            this.setState({
+                _isCreateInvitation: false,
+                eventTitle: '', 
+                eventType: '', 
+                hostname: '',
+                contact: '',
+                location: '',
+                address: '',
+                message: '',
+                behavior:'padding'
+            })
         }).catch(err => {
             Alert.alert('Please enter a valid phone number.')
         })
